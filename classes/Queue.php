@@ -6,9 +6,10 @@ class Queue{
     private $lastValue = -1;
     private $numitems =0;
 
-    public function __construct(int $size){
+    public function __construct(int $size , $fill = null){
         $this->clear();
-        $this->arrayQueue = new SplFixedArray($size);
+        if($fill == null) $this->arrayQueue = new SplFixedArray($size);
+        else $this->arrayQueue =  array_fill(0,$size, $fill);
         $this->size = $size;
     }
     
